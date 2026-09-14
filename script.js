@@ -28,15 +28,24 @@ const projectGrid = document.querySelector("#project-grid");
 const notesList = document.querySelector("#notes-list");
 
 function renderProfile() {
-  document.querySelector("#profile-lead").textContent = portfolioData.profile.lead;
-  document.querySelector("#profile-bio").textContent = portfolioData.profile.bio;
-  document.querySelector("#profile-link").href = `mailto:${portfolioData.profile.email}`;
-  document.querySelector("#profile-meta").innerHTML = portfolioData.profile.meta.map(item => `<span>${item[0]}<br><b>${item[1]}</b></span>`).join("");
+  const lead = document.querySelector("#profile-lead");
+  const bio = document.querySelector("#profile-bio");
+  const link = document.querySelector("#profile-link");
+  const meta = document.querySelector("#profile-meta");
+
+  if (!lead || !bio || !link || !meta) return;
+
+  lead.textContent = portfolioData.profile.lead;
+  bio.textContent = portfolioData.profile.bio;
+  link.href = `mailto:${portfolioData.profile.email}`;
+  meta.innerHTML = portfolioData.profile.meta.map(item => `<span>${item[0]}<br><b>${item[1]}</b></span>`).join("");
 }
 
 function renderProjects(filter = "all") {
+  if (!projectGrid) return;
+
   const projects = portfolioData.projects.filter(project => filter === "all" || project.category === filter);
-  projectGrid.innerHTML = projects.map((project, index) => `
+  projectGrid.innerHTML = projects.map((project) => `
     <article class="project-card">
       <div class="project-art">
         <span class="project-number">0${portfolioData.projects.indexOf(project) + 1}</span>
@@ -50,15 +59,19 @@ function renderProjects(filter = "all") {
 }
 
 function renderNotes() {
+  if (!notesList) return;
+
   notesList.innerHTML = portfolioData.notes.map(note => `
     <a class="note-row" href="#notes">
       <span class="note-date">${note.date}</span><span class="note-title">${note.title}</span><span class="note-tag">${note.tag} ↗</span>
     </a>`).join("");
 }
 
-document.querySelectorAll(".filter-button").forEach(button => {
+const filterButtons = document.querySelectorAll(".filter-button");
+filterButtons.forEach(button => {
   button.addEventListener("click", () => {
-    document.querySelector(".filter-button.is-active").classList.remove("is-active");
+    const activeButton = document.querySelector(".filter-button.is-active");
+    if (activeButton) activeButton.classList.remove("is-active");
     button.classList.add("is-active");
     renderProjects(button.dataset.filter);
   });
@@ -66,12 +79,16 @@ document.querySelectorAll(".filter-button").forEach(button => {
 
 const menuButton = document.querySelector(".menu-button");
 const navigation = document.querySelector(".main-nav");
-menuButton.addEventListener("click", () => {
-  const isOpen = menuButton.getAttribute("aria-expanded") === "true";
-  menuButton.setAttribute("aria-expanded", String(!isOpen));
-  navigation.classList.toggle("is-open", !isOpen);
-});
+if (menuButton && navigation) {
+  menuButton.addEventListener("click", () => {
+    const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+    menuButton.setAttribute("aria-expanded", String(!isOpen));
+    navigation.classList.toggle("is-open", !isOpen);
+  });
+}
 
-renderProjects();
-renderNotes();
-renderProfile();
+if (projectGrid || notesList || document.querySelector("#profile-lead")) {
+  renderProjects();
+  renderNotes();
+  renderProfile();
+}

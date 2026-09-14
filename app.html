@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="App 子页面">
+  <title>App | Lin Xia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background: #f7f6f1;
+    }
+    .app-shell {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 72px 24px 100px;
+    }
+    .app-hero {
+      border-top: 1px solid #17231f;
+      padding-top: 28px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+      align-items: end;
+    }
+    .app-kicker {
+      font: 11px/1.5 "DM Mono", monospace;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: #64726c;
+      margin-bottom: 18px;
+    }
+    .app-hero h1 {
+      font-size: clamp(52px, 9vw, 120px);
+      line-height: .9;
+      letter-spacing: -.08em;
+      margin: 0;
+    }
+    .app-card {
+      background: #ffffff;
+      border: 1px solid #ccd2c9;
+      border-radius: 22px;
+      padding: 26px;
+      box-shadow: 0 18px 36px rgba(23, 35, 31, 0.04);
+    }
+    .app-card p {
+      margin: 0;
+      line-height: 1.7;
+      color: #44514d;
+      font-size: 15px;
+    }
+    .app-grid {
+      margin-top: 64px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .mini-panel {
+      border: 1px solid #ccd2c9;
+      background: rgba(255,255,255,0.4);
+      padding: 22px 20px;
+      min-height: 180px;
+    }
+    .mini-panel .label {
+      display: block;
+      font: 10px/1.5 "DM Mono", monospace;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: #64726c;
+      margin-bottom: 18px;
+    }
+    .mini-panel h3 {
+      margin: 0 0 12px;
+      font-size: clamp(24px, 3vw, 36px);
+      letter-spacing: -.06em;
+      font-weight: 500;
+    }
+    .mini-panel p {
+      margin: 0;
+      color: #44514d;
+      line-height: 1.7;
+      font-size: 14px;
+    }
+    @media (max-width: 700px) {
+      .app-hero, .app-grid {
+        grid-template-columns: 1fr;
+      }
+      .app-shell {
+        padding-top: 52px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="返回首页">LX<span>·</span>26</a>
+    <nav class="main-nav" aria-label="主导航">
+      <a href="index.html#work">Selected work</a>
+      <a href="index.html#about">About</a>
+      <a href="index.html#notes">Notes</a>
+      <a href="app.html">App</a>
+    </nav>
+    <a class="contact-link" href="mailto:hello@linxia.studio">Let’s talk <span>↗</span></a>
+    <button class="menu-button" type="button" aria-label="打开菜单" aria-expanded="false"><span></span><span></span></button>
+  </header>
+
+  <main class="app-shell">
+    <section class="app-hero">
+      <div>
+        <div class="app-kicker">App / digital experiments</div>
+        <h1>App</h1>
+      </div>
+      <div class="app-card">
+        <p>这是一个独立子页面，用于展示应用场景、原型内容或工具入口。它继承了当前站点的视觉语言，同时保持独立的内容结构，方便后续扩展到真实功能页面。</p>
+      </div>
+    </section>
+
+    <section class="figma-wrap" style="margin-top: 56px; border: 1px solid #ccd2c9; background: rgba(255,255,255,0.7);">
+      <div style="padding: 16px 18px; border-bottom: 1px solid #ccd2c9; font: 11px/1.5 "DM Mono", monospace; text-transform: uppercase; letter-spacing: .08em; color: #64726c;">
+        Figma project / embedded work
+      </div>
+      <div style="position: relative; width: 100%; height: min(76vh, 920px); min-height: 500px; background: #f1f2ee;">
+        <iframe
+          title="Figma Project"
+          style="width:100%; height:100%; border:0; display:block; background:#fff;"
+          src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2Fmn5CBzLQfSKuWm4HHr5wD5%2FUntitled%3Fnode-id%3D1-18%26t%3Dw7SQ1lJpoNzyV9dA-1"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <section class="app-grid">
+      <article class="mini-panel">
+        <span class="label">01 / feature</span>
+        <h3>Prototype</h3>
+        <p>用于快速验证信息结构和交互层次，适合产品概念与页面展示。</p>
+      </article>
+      <article class="mini-panel">
+        <span class="label">02 / flow</span>
+        <h3>Workflow</h3>
+        <p>支持从布局、内容到调用逻辑的多阶段迭代，便于持续打磨体验。</p>
+      </article>
+      <article class="mini-panel">
+        <span class="label">03 / launch</span>
+        <h3>Release</h3>
+        <p>可作为“功能页”入口，后续再接入真实数据、API 或用户交互逻辑。</p>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
