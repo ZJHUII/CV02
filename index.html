@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="林夏的个人作品集：品牌、数字产品与空间体验。">
+  <title>Lin Xia / Independent Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="返回首页">LX<span>·</span>26</a>
+    <nav class="main-nav" aria-label="主导航">
+      <a href="#work">Selected work</a>
+      <a href="#about">About</a>
+      <a href="#notes">Notes</a>
+    </nav>
+    <a class="contact-link" href="mailto:hello@linxia.studio">Let’s talk <span>↗</span></a>
+    <button class="menu-button" type="button" aria-label="打开菜单" aria-expanded="false"><span></span><span></span></button>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="hero-kicker"><span class="live-dot"></span> Available for selected projects · 2026</div>
+      <h1>把复杂的事<br><em>做简单。</em></h1>
+      <div class="hero-bottom">
+        <p class="hero-intro">最近在做的事</p>
+        <div class="scroll-cue"><span>Scroll to explore</span><span class="arrow-down">↓</span></div>
+      </div>
+      <div class="hero-stamp" aria-hidden="true">SELECTED<br>WORK<br><span>✳</span> 2020—26</div>
+    </section>
+
+    <section class="work section-shell" id="work">
+      <div class="section-heading">
+        <span class="section-index">01 / 03</span>
+        <h2>working</h2>
+        <p>一些正在生长的品牌、产品与体验。</p>
+      </div>
+      <div class="filter-bar" role="toolbar" aria-label="作品筛选">
+        <button class="filter-button is-active" data-filter="all">All projects <span>06</span></button>
+        <button class="filter-button" data-filter="brand">Branding <span>02</span></button>
+        <button class="filter-button" data-filter="digital">Digital <span>03</span></button>
+        <button class="filter-button" data-filter="space">Space <span>01</span></button>
+      </div>
+      <div class="project-grid" id="project-grid"></div>
+    </section>
+
+    <section class="about section-shell" id="about">
+      <div class="section-heading">
+        <span class="section-index">02 / 03</span>
+        <h2>A little context</h2>
+        <p>工作之外，也在观察生活里的细小变化。</p>
+      </div>
+      <div class="about-grid">
+        <div class="portrait-wrap"><div class="portrait-placeholder">LX<span>26</span></div><span class="portrait-caption">The person behind the pixels<br>Shanghai / Everywhere</span></div>
+        <div class="about-copy">
+          <p class="lead-copy" id="profile-lead"></p>
+          <p id="profile-bio"></p>
+          <a class="text-link" id="profile-link" href="mailto:hello@linxia.studio">More about me <span>↗</span></a>
+          <div class="about-meta" id="profile-meta"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="notes section-shell" id="notes">
+      <div class="section-heading">
+        <span class="section-index">03 / 03</span>
+        <h2>Notes to self</h2>
+        <p>不太规律，但都是真实发生过的想法。</p>
+      </div>
+      <div class="notes-list" id="notes-list"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer section-shell">
+    <div><span class="footer-mark">LX<span>·</span>26</span><p>Designing with curiosity<br>and a little bit of nerve.</p></div>
+    <div class="footer-links"><a href="mailto:hello@linxia.studio">Email ↗</a><a href="https://www.instagram.com" target="_blank" rel="noreferrer">Instagram ↗</a><a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn ↗</a></div>
+    <div class="footer-end">© 2026 Lin Xia<br>Built with intention</div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
